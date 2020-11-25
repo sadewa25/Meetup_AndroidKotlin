@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.flashcom.meetup3.model.ModelItem
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity() {
@@ -23,7 +24,11 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun setupRvAdapter() {
-        val myDataItem = arrayListOf("Biskuit", "Susu", "Sereal")
+        val myDataItem = arrayListOf(
+            ModelItem("Susu Beruang","Susu", "https://img.icons8.com/material/4ac144/256/user-male.png"),
+            ModelItem("SilverQueen","Cokelat", "https://img.icons8.com/material/4ac144/256/user-male.png"),
+            ModelItem("Kitkat","Cokelat", "https://img.icons8.com/material/4ac144/256/user-male.png"),
+        )
         //rv_dashboard.layoutManager = GridLayoutManager(this,2)
         rv_dashboard.layoutManager = LinearLayoutManager(this)
         rv_dashboard.adapter = RvAdapterDashboard(myDataItem)

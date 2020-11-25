@@ -5,8 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.flashcom.meetup3.model.ModelItem
 
-class RvAdapterDashboard(private val myDataset: ArrayList<String>) :
+class RvAdapterDashboard(private val myDataset: ArrayList<ModelItem>) :
     RecyclerView.Adapter<RvAdapterDashboard.MyViewHolder>() {
 
     // Create new views (invoked by the layout manager)
@@ -30,15 +31,15 @@ class RvAdapterDashboard(private val myDataset: ArrayList<String>) :
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //Connecting the variable to layout item
         val itemText = itemView.findViewById<TextView>(R.id.tv_item_dashboard)
         val itemContent = itemView.findViewById<TextView>(R.id.tv_item_content)
-        fun bindData(data: String){
+        fun bindData(data: ModelItem) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            itemText.text = data
-            itemContent.text = data
+            itemText.text = data.title
+            itemContent.text = data.content
         }
     }
 
